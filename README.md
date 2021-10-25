@@ -3,22 +3,22 @@ Hometask for Genesis/KMA Highload course
 
 # Steps to complete the hometask.
 
-0. Get security keys.
+### 0. Get security keys.
  - [x] Go to the security credentials page.
  - [x] Open Access keys.
  - [x] Save generated AWS Access Key Id, AWS Secret Access Key.
 
-1. Configure aws cli account.
+### 1. Configure aws cli account.
  - [x] Enter in terminal command: 'aws configure'.
  - [x] Enter AWS Access Key ID and AWS Secret Access Key.
  - [x] Enter region name. (eu-central-1)
 
-2. Create VPC.
+### 2. Create VPC.
  - [x] Enter in terminal command: `aws ec2 create-vpc --cidr-block 10.10.0.0/18 --no-amazon-provided-ipv6-cidr-block --query Vpc.VpcId --output text`.
  - [x] Enter in terminal command: `aws ec2 describe-vpcs | grep "VpcId"`. 
  - [x] As a result, I received VpcId: 'vpc-078c6871f771f25d6' and 'vpc-0ede0a7ea55c30729'.
 
-3. Create subnets.
+### 3. Create subnets.
 
  - [x] Enter command: `aws ec2 create-subnet --vpc-id="$VPC-ID" --cidr-block 10.10.1.0/24`.
 
@@ -46,7 +46,7 @@ Output:
  - [x] Enter command: `aws ec2 create-subnet --vpc-id="$VPC-ID" --cidr-block 10.10.3.0/24`.
 
 
-4. Create launch template.
+### 4. Create launch template.
 
  - [x] Input launch template name: 'eu-cental-1-launch-template'.
  - [x] Input version description: 'Test template'.
@@ -56,7 +56,7 @@ Output:
  - [x] Setup networking settings: 'VPC, vpc-078c6871f771f25d6'.
  - [x] Submit form: 'network-launch-template (lt-0a7d91f3a3ec8b25c)'.
 
-5. Create AWS ASG.
+### 5. Create AWS ASG.
 
  - [x] Input asg name: 'network-asg'.
  - [x] Select template: 'network-launch-template'.
@@ -65,7 +65,7 @@ Output:
  - [x] Select group size: minimum capacity: '1', maximum capacity: '3'.
  - [x] Submit form: 'eu-central-1-asg'.
 
-6. Edit security groups.
+### 6. Edit security groups.
 
  - [x] Edit inbound groups: 
    1. SSH (22): 'sgr-04f5e59a41cc390bb', My IP.
@@ -77,7 +77,7 @@ Output:
    2. HTTPS (443): 'sgr-0de3319d6f45dd354', Anywhere IPv4.
    3. HTTP (80); 'sgr-09497bea9a70d95c6', Anywhere IPv4.
 
-7. Attach ALB.
+### 7. Attach ALB.
 
  - [x] Input ALB name: 'eu-central-1-alb'.
  - [x] Select ALB scheme: 'Internal'.
