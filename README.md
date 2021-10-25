@@ -1,7 +1,7 @@
 # VPC
-Hometask for Genesis/KMA Highload course
+## Hometask for Genesis/KMA Highload course
 
-# Steps to complete the hometask.
+## Steps to complete the hometask.
 
 ### 0. Get security keys.
  - [x] Go to the security credentials page.
